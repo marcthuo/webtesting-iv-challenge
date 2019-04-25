@@ -2,11 +2,13 @@ const router = require('express').Router();
 
 const muggles = require('./mugglesModel.js');
     
+//check
 router.get('/', async (req, res) => {
     const wand = await muggles.getAll();
     res.status(200).json(wand);
 });
 
+//check
 router.post('/', async (req, res) => {
     try {
         const muggle = await muggles.insert(req.body);
@@ -16,6 +18,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+//check
 router.delete('/:id', async (req, res)  => {
     const {id} = req.params;
     try {

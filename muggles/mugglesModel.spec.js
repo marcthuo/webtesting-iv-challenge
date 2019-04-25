@@ -26,8 +26,8 @@ describe('muggles model', () => {
             await db('muggles').truncate()
         })
         it('should remove the provided muggles from the db', async () => {
-            await Muggles.remove({ name: 'voldemort' })
-            await Muggles.remove({ name: 'draco' })
+            await Muggles.del({ name: 'voldemort' })
+            await Muggles.del({ name: 'draco' })
 
             const muggles = await db('muggles')
             expect(muggles).toHaveLength(2)

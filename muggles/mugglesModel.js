@@ -22,12 +22,12 @@ async function update(id, changes) {
 
 async function remove(id) {
     return db('muggles')
-    .where( 'id' )
+    .where( 'id', Number(id) )
     .del()
 }
 
 function getAll() {
-    return db('muggles').select('name');
+    return db('muggles').select('id', 'name');
 }
 
 function findById(id) {
