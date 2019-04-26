@@ -4,8 +4,12 @@ const muggles = require('./mugglesModel.js');
     
 //check
 router.get('/', async (req, res) => {
-    const wand = await muggles.getAll();
-    res.status(200).json(wand);
+    try {
+        const wand = await muggles.getAll();
+        res.status(200).json(wand);
+    } catch (err) {
+        res.status(500).json({ error: 'Hogwarts is closed' })
+    }
 });
 
 //check
@@ -34,7 +38,5 @@ router.delete('/:id', async (req, res)  => {
         });
     }
 });
-
-
 
 module.exports = router;
